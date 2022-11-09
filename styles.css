@@ -44,8 +44,55 @@ body {
 
 #header {
     padding-top: var(--grid-sides-padding);
-    padding-right: var(--grid-sides-padding);
+    padding-right: calc(var(--grid-sides-padding)*3);
     grid-area: 1 / 2 / 2 / 3;
+
+    display: inherit;
+    row-gap: 30px;
+    grid-template: 1fr 2fr / 2fr 1fr;
+}
+
+#header > div {
+    display: flex; 
+}
+
+#search-bar,
+#header > div:nth-child(3) {
+    gap: 15px;
+}
+
+input[type="search"] {
+    height: min-content;
+    width: 95%;
+    padding: 3px 7px;
+
+    appearance: none;
+    border: none;
+    border-radius: 12px;
+    background-color: lightgray;
+}
+
+#user-info,
+#header > div:nth-child(4) {
+    justify-content: end;
+}
+
+#user-info {
+    gap: 50px;
+}
+
+#header > div:nth-child(4) {
+    gap: 30px;
+}
+
+.user-buttons {
+    height: min-content;
+    padding: 10px 25px;
+
+    appearance: none;
+    border: none;
+    border-radius: 20px;
+    background-color: lightblue;
 }
 
 #main-content {
