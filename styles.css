@@ -1,5 +1,13 @@
+:root {
+    --grid-sides-padding: 20px;
+}
+
 * {
     margin: 0px;
+}
+
+body {
+    
 }
 
 #container {
@@ -11,13 +19,36 @@
 }
 
 #sidebar {
+    padding-left: var(--grid-sides-padding);
+    padding-top: var(--grid-sides-padding);
     grid-area: 1 / 1 / 3 / 2;
+
+    display: inherit;
+    grid-template-rows: max-content max-content max-content;
+    gap: 50px;
+}
+
+#nav,
+#help {
+    display: inherit;
+    gap: 15px;
+    grid-auto-rows: max-content;
+}
+
+#dashboard-header, 
+.nav-option {
+    display: inherit;
+    gap: 20px;
+    grid-template-columns: min-content max-content;
 }
 
 #header {
+    padding-top: var(--grid-sides-padding);
+    padding-right: var(--grid-sides-padding);
     grid-area: 1 / 2 / 2 / 3;
 }
 
 #main-content {
+    padding-right: var(--grid-sides-padding);
     grid-area: 2 / 2 / 3 / 3;
 }
