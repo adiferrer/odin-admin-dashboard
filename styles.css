@@ -1,14 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&display=swap');
+
 :root {
-    --grid-sides-padding: 20px;
+    --grid-sides-padding: 25px;
+
+    --main-dark-color: #65a30d;
+    --light-color-head: #f7fee7;
+    --light-color-main: #ecfccb;
+    --dark-color-other: #4d7c0f;
+    --light-color-other: #d9f99d;
 }
 
 * {
     margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
 }
 
-body {
-    
-}
+/* body {
+   
+} */
 
 #container {
     height: 100vh;
@@ -19,15 +29,15 @@ body {
 }
 
 #sidebar {
-    padding-left: var(--grid-sides-padding);
-    padding-top: var(--grid-sides-padding);
+    padding: 15px 30px 0px 0px;
     grid-area: 1 / 1 / 3 / 2;
 
     display: inherit;
-    grid-template-rows: max-content max-content max-content;
+    grid-template-rows: repeat(3, min-content);
     gap: 50px;
 
-    background-color: antiquewhite;
+    background-color: var(--main-dark-color);
+    color: var(--light-color-head);
 }
 
 #nav,
@@ -39,29 +49,61 @@ body {
 
 #dashboard-header, 
 .nav-option {
+    width: 100%;
     display: inherit;
-    gap: 20px;
-    grid-template-columns: min-content max-content;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#dashboard-icon {
+    width: 4em;
+}
+
+#dashboard-header > h2,
+.username {
+    font-weight: 600;
+}
+
+#dashboard-icon,
+.nav-icons {
+    filter: invert(98%) sepia(6%) saturate(585%) hue-rotate(28deg) brightness(98%) contrast(107%);
+    height: auto;
+}
+
+#dashboard-header > h2,
+.nav-option > div {
+    align-self: center;
+    justify-self: start;
+}
+
+.nav-icons {
+    width: 2em;
 }
 
 #header {
-    padding: var(--grid-sides-padding) calc(var(--grid-sides-padding)*3) 0px 30px;
+    padding: var(--grid-sides-padding) calc(var(--grid-sides-padding)*3) 15px 30px;
     grid-area: 1 / 2 / 2 / 3;
 
     display: inherit;
-    row-gap: 30px;
     grid-template: 1fr 2fr / 2fr 1fr;
-
-    background-color: burlywood;
+    row-gap: 20px;
+    background-color: var(--light-color-head);
 }
 
 #header > div {
     display: flex; 
+    align-items: center;
 }
 
 #search-bar,
 #header > div:nth-child(3) {
     gap: 15px;
+}
+
+#search-icon,
+#notif-icon {
+    width: 1.5em;
+    height: auto;
 }
 
 input[type="search"] {
@@ -71,8 +113,18 @@ input[type="search"] {
 
     appearance: none;
     border: none;
-    border-radius: 12px;
-    background-color: lightgray;
+    border-radius: 15px;
+    background-color: var(--light-color-other); 
+}
+
+input[type="search"]:focus {
+    outline: none;
+    background-color: #d6e5b7;
+    border: 3px solid var(--dark-color-other);
+}
+
+input[type="search"]:hover {
+    background-color: #d6e5b7;
 }
 
 #user-info,
@@ -81,7 +133,17 @@ input[type="search"] {
 }
 
 #user-info {
-    gap: 50px;
+    gap: 20px;
+}
+
+img[alt="profile-pic"] {
+    border-radius: 50%;
+    width: 2em;
+}
+
+#header > div:nth-child(3) > img[alt="profile-pic"]  {
+    width: 3em;
+    height: 3em;
 }
 
 #header > div:nth-child(4) {
@@ -95,7 +157,7 @@ input[type="search"] {
     appearance: none;
     border: none;
     border-radius: 20px;
-    background-color: lightblue;
+    background-color: var(--main-dark-color); 
 }
 
 #main-content {
@@ -105,6 +167,8 @@ input[type="search"] {
     display: inherit;
     gap: 40px 20px;
     grid-template: repeat(2, max-content) / 3fr 1fr;
+
+    background-color: var(--light-color-main); 
 }
 
 #projects {
@@ -121,6 +185,8 @@ input[type="search"] {
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     grid-auto-rows: max-content;
+
+    /* overflow: auto; */
 }
 
 .project-card {
@@ -130,21 +196,30 @@ input[type="search"] {
     display: inherit;
     grid-template-columns: 1% 99%;
 
-    background-color: aliceblue;
+    background-color: var(--light-color-head); 
 }
 
 .left-line {
-    background-color: red;
+    background-color: var(--dark-color-other); 
 }
 
 .project-card > div:nth-child(2) {
     padding: 20px;
 }
 
+.project-pages {
+    color: black;
+    text-decoration: none;
+}
+
 .action-icons {
     display: flex;
     gap: 20px;
     justify-content: end;
+}
+
+.action-icons > img {
+    width: 1.2em;
 }
 
 #announcements,
@@ -158,20 +233,33 @@ input[type="search"] {
 #announcements {
     gap: 10px;
 
-    background-color: azure;
+    background-color: var(--light-color-other); 
 }
 
 .announcement > h5 {
     margin-bottom: 1px;
 }
 
+hr {
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+
+    margin: 10px 0px;
+}
+
 #trend-box {
     gap: 20px;
 
-    background-color: cadetblue;
+    background-color: var(--light-color-other); 
 }
 
 .trend {
     display: inherit;
     gap: 15px;
+    align-items: center;
+}
+
+.other-profiles {
+    border-radius: 50%;
 }
