@@ -1,5 +1,5 @@
-# odin-admin-dashboard
+# Odin Admin Dashboard
 
-#### TO DO
-- add icons
-- add fonts
+#### TO DO (for later)
+- layout for mobile
+- JS
